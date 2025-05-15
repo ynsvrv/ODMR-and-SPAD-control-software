@@ -1,0 +1,117 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "SPI_SCLK",
+					"strict" : false
+				},
+				{
+					"name" : "SPI_CS_N[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SPI_MOSI",
+					"strict" : false
+				},
+				{
+					"name" : "LOAD",
+					"strict" : false
+				},
+				{
+					"name" : "CLEAR",
+					"strict" : false
+				},
+				{
+					"name" : "SI_w",
+					"strict" : false
+				},
+				{
+					"name" : "SI_d",
+					"strict" : false
+				},
+				{
+					"name" : "RST_chip",
+					"strict" : false
+				},
+				{
+					"name" : "CLK_chip",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[6]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[5]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[7]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[4]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[10]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[9]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[11]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[8]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[13]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[14]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[15]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[12]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[1]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[2]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[3]",
+					"strict" : false
+				},
+				{
+					"name" : "SOX[0]",
+					"strict" : false
+				},
+				{
+					"name" : "SPI_MISO",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
