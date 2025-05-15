@@ -1,0 +1,60 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity SPI_buffer_sender is
+    Port (
+        CLK            	: in  std_logic;
+        RST            	: in  std_logic;
+        START_TRANSFER 	: in  std_logic;                     -- Start transfer signal
+        DATA_IN    	: in  std_logic_vector(8191 downto 0); -- 8192-bit (1024 bytes) data to transfer
+		  
+		  -- Connections with SPI Master module
+		  DIN      : out  std_logic_vector(7 downto 0); -- data for transmission to SPI slave
+        --DIN_ADDR : out  std_logic_vector(0 downto 0) := (others => '0');  -- SPI slave address
+        DIN_LAST : out  std_logic; -- when DIN_LAST = 1, last data word, after transmit will be asserted CS_N
+        DIN_VLD  : out  std_logic; -- when DIN_VLD = 1, data for transmission are valid
+        DIN_RDY  : in std_logic -- when DIN_RDY = 1, SPI master is ready to accept valid data for transmission
+    );
+end entity;
+
+architecture RTL of SPI_buffer_sender is
+
+    signal data_word     : std_logic_vector(7 downto 0);   -- 8-bit word to send
+    signal word_counter  : integer range 0 to 1023 := 0;     -- Word counter
+    signal transfer_done : std_logic := '0';                -- Transfer done flag
+
+begin
+    process(CLK)
+    begin
+        if rising_edge(CLK) then
+            if RST = '1' then
+                -- Reset all signals
+                word_counter <= 0;
+                transfer_done <= '0';
+                DIN_VLD <= '0';
+            elsif START_TRANSFER = '1' and transfer_done = '0' then
+                if DIN_RDY = '1' then
+                    -- Load the next word from the 8192-bit vector
+                    data_word <= DATA_IN(8191 - word_counter*8 downto 8192 - (word_counter + 1)*8);
+
+                    DIN <= data_word;
+                    DIN_VLD <= '1';
+                    DIN_LAST <= '0';
+
+                    if word_counter = 1023 then
+                        DIN_LAST <= '1';  -- Indicate this is the last word
+                        transfer_done <= '1';
+                    else
+                        word_counter <= word_counter + 1;
+                    end if;
+                end if;
+            else
+                DIN_VLD <= '0';  -- No valid data to send
+            end if;
+        end if;
+    end process;
+	 
+--DIN_ADDR <= "0";
+
+end architecture;

@@ -1,0 +1,5 @@
+library IEEE;
+use IEEE.std_logic_1164.ALL;
+use IEEE.MATH_REAL.ALL;
+
+entity test_chip is

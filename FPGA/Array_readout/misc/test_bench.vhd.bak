@@ -1,0 +1,55 @@
+entity test_bench is
+end entity;
+
+architecture behaviour of test_bench is
+component Array_readout is
+	generic (
+		COUNTER_SIZE	: natural := 8 --Number of bits for each individual counter (will have 256 of those)
+	);
+	port (
+		-- General connections
+		CLK   : in  std_logic;
+		--RST : in  std_logic;
+		
+		-- SPI connections
+		SPI_SCLK  : out std_logic; -- SPI clock
+		SPI_CS_N  : out std_logic_vector(0 downto 0); -- SPI chip select, active low
+		SPI_MOSI  : out std_logic; -- SPI serial data from master to slave
+		SPI_MISO  : in  std_logic;  -- SPI serial data from slave to master
+		 
+		-- Chip connections
+		LOAD			: out std_logic := '0';
+		CLEAR			: out std_logic := '0';
+		SI_w			: out std_logic := '0';
+		SI_d			: out std_logic := '0';
+		RST_chip		: out std_logic := '0';
+		SOX			: in std_logic_vector(15 downto 0);
+		CLK_chip		: out std_logic
+  );
+end commponent;
+
+signal clk : std_logic := '0';
+
+begin
+	reader: Array_readout
+	port (
+		-- General connections
+		CLK   : in  std_logic;
+		--RST : in  std_logic;
+		
+		-- SPI connections
+		SPI_SCLK  : out std_logic; -- SPI clock
+		SPI_CS_N  : out std_logic_vector(0 downto 0); -- SPI chip select, active low
+		SPI_MOSI  : out std_logic; -- SPI serial data from master to slave
+		SPI_MISO  : in  std_logic;  -- SPI serial data from slave to master
+		 
+		-- Chip connections
+		LOAD			: out std_logic := '0';
+		CLEAR			: out std_logic := '0';
+		SI_w			: out std_logic := '0';
+		SI_d			: out std_logic := '0';
+		RST_chip		: out std_logic := '0';
+		SOX			: in std_logic_vector(15 downto 0);
+		CLK_chip		: out std_logic
+  );
+end Array_readout;
