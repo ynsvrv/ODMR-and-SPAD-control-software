@@ -1,0 +1,980 @@
+Analysis & Synthesis report for Array_readout
+Mon Sep  9 15:50:18 2024
+Quartus Prime Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |Array_readout|SPI_MASTER:SPI_MAMA|present_state
+  9. State Machine - |Array_readout|SPI_buffer_sender:SENDER|state
+ 10. State Machine - |Array_readout|controller:CTR|state
+ 11. State Machine - |Array_readout|serial_counter:\gen:15:uut|state
+ 12. State Machine - |Array_readout|serial_counter:\gen:14:uut|state
+ 13. State Machine - |Array_readout|serial_counter:\gen:13:uut|state
+ 14. State Machine - |Array_readout|serial_counter:\gen:12:uut|state
+ 15. State Machine - |Array_readout|serial_counter:\gen:11:uut|state
+ 16. State Machine - |Array_readout|serial_counter:\gen:10:uut|state
+ 17. State Machine - |Array_readout|serial_counter:\gen:9:uut|state
+ 18. State Machine - |Array_readout|serial_counter:\gen:8:uut|state
+ 19. State Machine - |Array_readout|serial_counter:\gen:7:uut|state
+ 20. State Machine - |Array_readout|serial_counter:\gen:6:uut|state
+ 21. State Machine - |Array_readout|serial_counter:\gen:5:uut|state
+ 22. State Machine - |Array_readout|serial_counter:\gen:4:uut|state
+ 23. State Machine - |Array_readout|serial_counter:\gen:3:uut|state
+ 24. State Machine - |Array_readout|serial_counter:\gen:2:uut|state
+ 25. State Machine - |Array_readout|serial_counter:\gen:1:uut|state
+ 26. State Machine - |Array_readout|serial_counter:\gen:0:uut|state
+ 27. Registers Removed During Synthesis
+ 28. General Register Statistics
+ 29. Inverted Register Statistics
+ 30. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 31. Parameter Settings for User Entity Instance: Top-level Entity: |Array_readout
+ 32. Parameter Settings for User Entity Instance: serial_counter:\gen:0:uut
+ 33. Parameter Settings for User Entity Instance: serial_counter:\gen:1:uut
+ 34. Parameter Settings for User Entity Instance: serial_counter:\gen:2:uut
+ 35. Parameter Settings for User Entity Instance: serial_counter:\gen:3:uut
+ 36. Parameter Settings for User Entity Instance: serial_counter:\gen:4:uut
+ 37. Parameter Settings for User Entity Instance: serial_counter:\gen:5:uut
+ 38. Parameter Settings for User Entity Instance: serial_counter:\gen:6:uut
+ 39. Parameter Settings for User Entity Instance: serial_counter:\gen:7:uut
+ 40. Parameter Settings for User Entity Instance: serial_counter:\gen:8:uut
+ 41. Parameter Settings for User Entity Instance: serial_counter:\gen:9:uut
+ 42. Parameter Settings for User Entity Instance: serial_counter:\gen:10:uut
+ 43. Parameter Settings for User Entity Instance: serial_counter:\gen:11:uut
+ 44. Parameter Settings for User Entity Instance: serial_counter:\gen:12:uut
+ 45. Parameter Settings for User Entity Instance: serial_counter:\gen:13:uut
+ 46. Parameter Settings for User Entity Instance: serial_counter:\gen:14:uut
+ 47. Parameter Settings for User Entity Instance: serial_counter:\gen:15:uut
+ 48. Parameter Settings for User Entity Instance: controller:CTR
+ 49. Parameter Settings for User Entity Instance: SPI_buffer_sender:SENDER
+ 50. Parameter Settings for User Entity Instance: SPI_MASTER:SPI_MAMA
+ 51. Port Connectivity Checks: "SPI_MASTER:SPI_MAMA"
+ 52. Post-Synthesis Netlist Statistics for Top Partition
+ 53. Elapsed Time Per Partition
+ 54. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2024  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Mon Sep  9 15:50:18 2024          ;
+; Quartus Prime Version              ; 23.1std.1 Build 993 05/14/2024 SC Lite Edition ;
+; Revision Name                      ; Array_readout                                  ;
+; Top-level Entity Name              ; Array_readout                                  ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 29,290                                         ;
+;     Total combinational functions  ; 29,286                                         ;
+;     Dedicated logic registers      ; 16,711                                         ;
+; Total registers                    ; 16711                                          ;
+; Total pins                         ; 27                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE115F29C7      ;                    ;
+; Top-level entity name                                            ; Array_readout      ; Array_readout      ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Maximum processors allowed for parallel compilation              ; All                ;                    ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
+;                            ;             ;
+; Average used               ; 1.01        ;
+; Maximum used               ; 4           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.5%      ;
+;     Processor 3            ;   0.3%      ;
+;     Processor 4            ;   0.3%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                           ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                    ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
+; spi_master.vhd                   ; yes             ; User VHDL File  ; /home/dl-lab-pc3/Dylan/FPGA/Array_readout/spi_master.vhd        ;         ;
+; SPI_buffer_sender.vhd            ; yes             ; User VHDL File  ; /home/dl-lab-pc3/Dylan/FPGA/Array_readout/SPI_buffer_sender.vhd ;         ;
+; serial_counter.vhd               ; yes             ; User VHDL File  ; /home/dl-lab-pc3/Dylan/FPGA/Array_readout/serial_counter.vhd    ;         ;
+; controller.vhd                   ; yes             ; User VHDL File  ; /home/dl-lab-pc3/Dylan/FPGA/Array_readout/controller.vhd        ;         ;
+; Array_readout.vhd                ; yes             ; User VHDL File  ; /home/dl-lab-pc3/Dylan/FPGA/Array_readout/Array_readout.vhd     ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimated Total logic elements              ; 29,290   ;
+;                                             ;          ;
+; Total combinational functions               ; 29286    ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 26925    ;
+;     -- 3 input functions                    ; 832      ;
+;     -- <=2 input functions                  ; 1529     ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 28086    ;
+;     -- arithmetic mode                      ; 1200     ;
+;                                             ;          ;
+; Total registers                             ; 16711    ;
+;     -- Dedicated logic registers            ; 16711    ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 27       ;
+;                                             ;          ;
+; Embedded Multiplier 9-bit elements          ; 0        ;
+;                                             ;          ;
+; Maximum fan-out node                        ; clk_slow ;
+; Maximum fan-out                             ; 16680    ;
+; Total fan-out                               ; 147453   ;
+; Average fan-out                             ; 3.20     ;
++---------------------------------------------+----------+
+
+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                       ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node      ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                       ; Entity Name       ; Library Name ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------+-------------------+--------------+
+; |Array_readout                  ; 29286 (47)          ; 16711 (34)                ; 0           ; 0            ; 0       ; 0         ; 27   ; 0            ; |Array_readout                            ; Array_readout     ; work         ;
+;    |SPI_MASTER:SPI_MAMA|        ; 33 (33)             ; 23 (23)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|SPI_MASTER:SPI_MAMA        ; SPI_MASTER        ; work         ;
+;    |SPI_buffer_sender:SENDER|   ; 13444 (13444)       ; 8052 (8052)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|SPI_buffer_sender:SENDER   ; SPI_buffer_sender ; work         ;
+;    |controller:CTR|             ; 274 (274)           ; 138 (138)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|controller:CTR             ; controller        ; work         ;
+;    |serial_counter:\gen:0:uut|  ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:0:uut  ; serial_counter    ; work         ;
+;    |serial_counter:\gen:10:uut| ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:10:uut ; serial_counter    ; work         ;
+;    |serial_counter:\gen:11:uut| ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:11:uut ; serial_counter    ; work         ;
+;    |serial_counter:\gen:12:uut| ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:12:uut ; serial_counter    ; work         ;
+;    |serial_counter:\gen:13:uut| ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:13:uut ; serial_counter    ; work         ;
+;    |serial_counter:\gen:14:uut| ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:14:uut ; serial_counter    ; work         ;
+;    |serial_counter:\gen:15:uut| ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:15:uut ; serial_counter    ; work         ;
+;    |serial_counter:\gen:1:uut|  ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:1:uut  ; serial_counter    ; work         ;
+;    |serial_counter:\gen:2:uut|  ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:2:uut  ; serial_counter    ; work         ;
+;    |serial_counter:\gen:3:uut|  ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:3:uut  ; serial_counter    ; work         ;
+;    |serial_counter:\gen:4:uut|  ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:4:uut  ; serial_counter    ; work         ;
+;    |serial_counter:\gen:5:uut|  ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:5:uut  ; serial_counter    ; work         ;
+;    |serial_counter:\gen:6:uut|  ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:6:uut  ; serial_counter    ; work         ;
+;    |serial_counter:\gen:7:uut|  ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:7:uut  ; serial_counter    ; work         ;
+;    |serial_counter:\gen:8:uut|  ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:8:uut  ; serial_counter    ; work         ;
+;    |serial_counter:\gen:9:uut|  ; 968 (968)           ; 529 (529)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Array_readout|serial_counter:\gen:9:uut  ; serial_counter    ; work         ;
++---------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|SPI_MASTER:SPI_MAMA|present_state                                                                                                 ;
++----------------------------+----------------------------+----------------------------+---------------------------+--------------------------+--------------------+
+; Name                       ; present_state.transmit_gap ; present_state.transmit_end ; present_state.second_edge ; present_state.first_edge ; present_state.idle ;
++----------------------------+----------------------------+----------------------------+---------------------------+--------------------------+--------------------+
+; present_state.idle         ; 0                          ; 0                          ; 0                         ; 0                        ; 0                  ;
+; present_state.first_edge   ; 0                          ; 0                          ; 0                         ; 1                        ; 1                  ;
+; present_state.second_edge  ; 0                          ; 0                          ; 1                         ; 0                        ; 1                  ;
+; present_state.transmit_end ; 0                          ; 1                          ; 0                         ; 0                        ; 1                  ;
+; present_state.transmit_gap ; 1                          ; 0                          ; 0                         ; 0                        ; 1                  ;
++----------------------------+----------------------------+----------------------------+---------------------------+--------------------------+--------------------+
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|SPI_buffer_sender:SENDER|state                                     ;
++---------------------+------------------+---------------------+----------------+-------------------+
+; Name                ; state.send_state ; state.prepare_state ; state.FF_state ; state.start_state ;
++---------------------+------------------+---------------------+----------------+-------------------+
+; state.start_state   ; 0                ; 0                   ; 0              ; 0                 ;
+; state.FF_state      ; 0                ; 0                   ; 1              ; 1                 ;
+; state.prepare_state ; 0                ; 1                   ; 0              ; 1                 ;
+; state.send_state    ; 1                ; 0                   ; 0              ; 1                 ;
++---------------------+------------------+---------------------+----------------+-------------------+
+
+
+Encoding Type:  One-Hot
++------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|controller:CTR|state                                                                                                              ;
++---------------------+------------------+------------------+---------------------+-------------------+---------------------+------------------+-------------------+
+; Name                ; state.read_state ; state.load_state ; state.collect_state ; state.clear_state ; state.standby_state ; state.conf_state ; state.start_state ;
++---------------------+------------------+------------------+---------------------+-------------------+---------------------+------------------+-------------------+
+; state.start_state   ; 0                ; 0                ; 0                   ; 0                 ; 0                   ; 0                ; 0                 ;
+; state.conf_state    ; 0                ; 0                ; 0                   ; 0                 ; 0                   ; 1                ; 1                 ;
+; state.standby_state ; 0                ; 0                ; 0                   ; 0                 ; 1                   ; 0                ; 1                 ;
+; state.clear_state   ; 0                ; 0                ; 0                   ; 1                 ; 0                   ; 0                ; 1                 ;
+; state.collect_state ; 0                ; 0                ; 1                   ; 0                 ; 0                   ; 0                ; 1                 ;
+; state.load_state    ; 0                ; 1                ; 0                   ; 0                 ; 0                   ; 0                ; 1                 ;
+; state.read_state    ; 1                ; 0                ; 0                   ; 0                 ; 0                   ; 0                ; 1                 ;
++---------------------+------------------+------------------+---------------------+-------------------+---------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:15:uut|state                                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:14:uut|state                                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:13:uut|state                                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:12:uut|state                                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:11:uut|state                                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:10:uut|state                                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:9:uut|state                                  ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:8:uut|state                                  ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:7:uut|state                                  ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:6:uut|state                                  ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:5:uut|state                                  ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:4:uut|state                                  ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:3:uut|state                                  ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:2:uut|state                                  ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:1:uut|state                                  ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------+
+; State Machine - |Array_readout|serial_counter:\gen:0:uut|state                                  ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; Name              ; state.read_state ; state.alert_state ; state.idle_state ; state.start_state ;
++-------------------+------------------+-------------------+------------------+-------------------+
+; state.start_state ; 0                ; 0                 ; 0                ; 0                 ;
+; state.idle_state  ; 0                ; 0                 ; 1                ; 1                 ;
+; state.alert_state ; 0                ; 1                 ; 0                ; 1                 ;
+; state.read_state  ; 1                ; 0                 ; 0                ; 1                 ;
++-------------------+------------------+-------------------+------------------+-------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; Register name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       ; Reason for Removal                     ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+; SPI_buffer_sender:SENDER|data_buffer[31,63,95,127,159,191,223,255,287,319,351,383,415,447,479,511,543,575,607,639,671,703,735,767,799,831,863,895,927,959,991,1023,1055,1087,1119,1151,1183,1215,1247,1279,1311,1343,1375,1407,1439,1471,1503,1535,1567,1599,1631,1663,1695,1727,1759,1791,1823,1855,1887,1919,1951,1983,2015,2047,2079,2111,2143,2175,2207,2239,2271,2303,2335,2367,2399,2431,2463,2495,2527,2559,2591,2623,2655,2687,2719,2751,2783,2815,2847,2879,2911,2943,2975,3007,3039,3071,3103,3135,3167,3199,3231,3263,3295,3327,3359,3391,3423,3455,3487,3519,3551,3583,3615,3647,3679,3711,3743,3775,3807,3839,3871,3903,3935,3967,3999,4031,4063,4095,4127,4159,4191,4223,4255,4287,4319,4351,4383,4415,4447,4479,4511,4543,4575,4607,4639,4671,4703,4735,4767,4799,4831,4863,4895,4927,4959,4991,5023,5055,5087,5119,5151,5183,5215,5247,5279,5311,5343,5375,5407,5439,5471,5503,5535,5567,5599,5631,5663,5695,5727,5759,5791,5823,5855,5887,5919,5951,5983,6015,6047,6079,6111,6143,6175,6207,6239,6271,6303,6335,6367,6399,6431,6463,6495,6527,6559,6591,6623,6655,6687,6719,6751,6783,6815,6847,6879,6911,6943,6975,7007,7039,7071,7103,7135,7167,7199,7231,7263,7295,7327,7359,7391,7423,7455,7487,7519,7551,7583,7615,7647,7679,7711,7743,7775,7807,7839,7871,7903,7935,7967,7999,8031,8063,8095,8127,8159,8191] ; Stuck at GND due to stuck port data_in ;
+; serial_counter:\gen:15:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Lost fanout                            ;
+; serial_counter:\gen:14:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Lost fanout                            ;
+; serial_counter:\gen:13:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Lost fanout                            ;
+; serial_counter:\gen:12:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Lost fanout                            ;
+; serial_counter:\gen:11:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Lost fanout                            ;
+; serial_counter:\gen:10:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Lost fanout                            ;
+; serial_counter:\gen:9:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Lost fanout                            ;
+; serial_counter:\gen:8:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Lost fanout                            ;
+; serial_counter:\gen:7:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Lost fanout                            ;
+; serial_counter:\gen:6:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Lost fanout                            ;
+; serial_counter:\gen:5:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Lost fanout                            ;
+; serial_counter:\gen:4:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Lost fanout                            ;
+; serial_counter:\gen:3:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Lost fanout                            ;
+; serial_counter:\gen:2:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Lost fanout                            ;
+; serial_counter:\gen:1:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Lost fanout                            ;
+; serial_counter:\gen:0:uut|state.alert_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Lost fanout                            ;
+; serial_counter:\gen:0:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Merged with initial_reset_done         ;
+; serial_counter:\gen:10:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Merged with initial_reset_done         ;
+; serial_counter:\gen:11:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Merged with initial_reset_done         ;
+; serial_counter:\gen:12:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Merged with initial_reset_done         ;
+; serial_counter:\gen:13:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Merged with initial_reset_done         ;
+; serial_counter:\gen:14:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Merged with initial_reset_done         ;
+; serial_counter:\gen:15:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ; Merged with initial_reset_done         ;
+; serial_counter:\gen:1:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Merged with initial_reset_done         ;
+; serial_counter:\gen:2:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Merged with initial_reset_done         ;
+; serial_counter:\gen:3:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Merged with initial_reset_done         ;
+; serial_counter:\gen:4:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Merged with initial_reset_done         ;
+; serial_counter:\gen:5:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Merged with initial_reset_done         ;
+; serial_counter:\gen:6:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Merged with initial_reset_done         ;
+; serial_counter:\gen:7:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Merged with initial_reset_done         ;
+; serial_counter:\gen:8:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Merged with initial_reset_done         ;
+; serial_counter:\gen:9:uut|state.start_state                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         ; Merged with initial_reset_done         ;
+; Total Number of Removed Registers = 288                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             ;                                        ;
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 16711 ;
+; Number of registers using Synchronous Clear  ; 101   ;
+; Number of registers using Synchronous Load   ; 31    ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 621   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; controller:CTR|LOAD                    ; 17      ;
+; Total number of inverted registers = 1 ;         ;
++----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |Array_readout|SPI_MASTER:SPI_MAMA|bit_cnt[0]                 ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |Array_readout|SPI_MASTER:SPI_MAMA|shreg[1]                   ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:15:uut|readout_counter[6]  ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:14:uut|readout_counter[7]  ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:13:uut|readout_counter[27] ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:12:uut|readout_counter[20] ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:11:uut|readout_counter[14] ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:10:uut|readout_counter[22] ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:9:uut|readout_counter[16]  ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:8:uut|readout_counter[15]  ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:7:uut|readout_counter[14]  ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:6:uut|readout_counter[3]   ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:5:uut|readout_counter[15]  ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:4:uut|readout_counter[17]  ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:3:uut|readout_counter[2]   ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:2:uut|readout_counter[1]   ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:1:uut|readout_counter[30]  ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |Array_readout|serial_counter:\gen:0:uut|readout_counter[10]  ;
+; 6:1                ; 31 bits   ; 124 LEs       ; 31 LEs               ; 93 LEs                 ; Yes        ; |Array_readout|SPI_buffer_sender:SENDER|delay_counter[4]      ;
+; 6:1                ; 31 bits   ; 124 LEs       ; 31 LEs               ; 93 LEs                 ; Yes        ; |Array_readout|controller:CTR|conf_counter[9]                 ;
+; 1024:1             ; 7 bits    ; 4774 LEs      ; 4774 LEs             ; 0 LEs                  ; Yes        ; |Array_readout|SPI_buffer_sender:SENDER|data_byte[6]          ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Array_readout|SPI_MASTER:SPI_MAMA|present_state              ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |Array_readout|controller:CTR|state                           ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |Array_readout|controller:CTR|state                           ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:15:uut|Mux8                ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:14:uut|Mux8                ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:13:uut|Mux15               ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:12:uut|Mux11               ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:11:uut|Mux15               ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:10:uut|Mux7                ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:9:uut|Mux4                 ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:8:uut|Mux10                ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:7:uut|Mux9                 ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:6:uut|Mux13                ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:5:uut|Mux22                ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:4:uut|Mux6                 ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:3:uut|Mux8                 ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:2:uut|Mux15                ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:1:uut|Mux11                ;
+; 16:1               ; 31 bits   ; 310 LEs       ; 310 LEs              ; 0 LEs                  ; No         ; |Array_readout|serial_counter:\gen:0:uut|Mux14                ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:15:uut|Selector496         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:14:uut|Selector496         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:13:uut|Selector496         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:12:uut|Selector496         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:11:uut|Selector496         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:10:uut|Selector497         ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:9:uut|Selector497          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:8:uut|Selector497          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:7:uut|Selector497          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:6:uut|Selector497          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:5:uut|Selector497          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:4:uut|Selector496          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:3:uut|Selector496          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:2:uut|Selector496          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:1:uut|Selector496          ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; No         ; |Array_readout|serial_counter:\gen:0:uut|Selector496          ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+
+
++-------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |Array_readout ;
++----------------+-------+------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                 ;
++----------------+-------+------------------------------------------------------+
+; COUNTER_SIZE   ; 32    ; Signed Integer                                       ;
+; NUM_CYCLES     ; 100   ; Signed Integer                                       ;
++----------------+-------+------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:0:uut ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:1:uut ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:2:uut ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:3:uut ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:4:uut ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:5:uut ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:6:uut ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:7:uut ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:8:uut ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:9:uut ;
++----------------+-------+-----------------------------------------------+
+; Parameter Name ; Value ; Type                                          ;
++----------------+-------+-----------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                ;
++----------------+-------+-----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:10:uut ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:11:uut ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:12:uut ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:13:uut ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:14:uut ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: serial_counter:\gen:15:uut ;
++----------------+-------+------------------------------------------------+
+; Parameter Name ; Value ; Type                                           ;
++----------------+-------+------------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                                 ;
++----------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: controller:CTR ;
++-----------------------------+-------+-----------------------+
+; Parameter Name              ; Value ; Type                  ;
++-----------------------------+-------+-----------------------+
+; num_cycles                  ; 100   ; Signed Integer        ;
+; QUENCH_WIDTH                ; 01000 ; Unsigned Binary       ;
+; QUENCH_DELAY                ; 01000 ; Unsigned Binary       ;
+; COLLECTION_TIME_PER_READOUT ; 16    ; Signed Integer        ;
++-----------------------------+-------+-----------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SPI_buffer_sender:SENDER ;
++----------------+-------+----------------------------------------------+
+; Parameter Name ; Value ; Type                                         ;
++----------------+-------+----------------------------------------------+
+; counter_size   ; 32    ; Signed Integer                               ;
++----------------+-------+----------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: SPI_MASTER:SPI_MAMA ;
++----------------+---------+---------------------------------------+
+; Parameter Name ; Value   ; Type                                  ;
++----------------+---------+---------------------------------------+
+; clk_freq       ; 1000000 ; Signed Integer                        ;
+; sclk_freq      ; 50000   ; Signed Integer                        ;
+; word_size      ; 8       ; Signed Integer                        ;
+; SLAVE_COUNT    ; 1       ; Signed Integer                        ;
++----------------+---------+---------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "SPI_MASTER:SPI_MAMA"                                                                                                                             ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type   ; Severity ; Details                                                                                                                                      ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+; dout     ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; dout_vld ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                                                          ;
+; din_addr ; Input  ; Warning  ; Declared by entity but not connected by instance. If a default value exists, it will be used.  Otherwise, the port will be connected to GND. ;
++----------+--------+----------+----------------------------------------------------------------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 27                          ;
+; cycloneiii_ff         ; 16711                       ;
+;     ENA               ; 557                         ;
+;     ENA SCLR          ; 64                          ;
+;     SCLR              ; 37                          ;
+;     SLD               ; 31                          ;
+;     plain             ; 16022                       ;
+; cycloneiii_lcell_comb ; 29287                       ;
+;     arith             ; 1200                        ;
+;         2 data inputs ; 1182                        ;
+;         3 data inputs ; 18                          ;
+;     normal            ; 28087                       ;
+;         1 data inputs ; 43                          ;
+;         2 data inputs ; 305                         ;
+;         3 data inputs ; 814                         ;
+;         4 data inputs ; 26925                       ;
+;                       ;                             ;
+; Max LUT depth         ; 10.00                       ;
+; Average LUT depth     ; 6.28                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:01:30     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 23.1std.1 Build 993 05/14/2024 SC Lite Edition
+    Info: Processing started: Mon Sep  9 15:48:35 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Array_readout -c Array_readout
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file spi_master.vhd
+    Info (12022): Found design unit 1: SPI_MASTER-RTL File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/spi_master.vhd Line: 43
+    Info (12023): Found entity 1: SPI_MASTER File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/spi_master.vhd Line: 16
+Info (12021): Found 2 design units, including 1 entities, in source file SPI_buffer_sender.vhd
+    Info (12022): Found design unit 1: SPI_buffer_sender-RTL File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/SPI_buffer_sender.vhd Line: 24
+    Info (12023): Found entity 1: SPI_buffer_sender File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/SPI_buffer_sender.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file serial_counter.vhd
+    Info (12022): Found design unit 1: serial_counter-behaviour File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/serial_counter.vhd Line: 19
+    Info (12023): Found entity 1: serial_counter File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/serial_counter.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file controller.vhd
+    Info (12022): Found design unit 1: controller-behaviour File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/controller.vhd Line: 32
+    Info (12023): Found entity 1: controller File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/controller.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file Array_readout.vhd
+    Info (12022): Found design unit 1: Array_readout-behaviour File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/Array_readout.vhd Line: 33
+    Info (12023): Found entity 1: Array_readout File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/Array_readout.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file test_chip.vhd
+    Info (12022): Found design unit 1: test_chip-behaviour File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/test_chip.vhd Line: 17
+    Info (12023): Found entity 1: test_chip File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/test_chip.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file test_setup.vhd
+    Info (12022): Found design unit 1: test_setup-behaviour File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/test_setup.vhd Line: 23
+    Info (12023): Found entity 1: test_setup File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/test_setup.vhd Line: 5
+Info (12127): Elaborating entity "Array_readout" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at Array_readout.vhd(47): object "DOUT" assigned a value but never read File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/Array_readout.vhd Line: 47
+Warning (10036): Verilog HDL or VHDL warning at Array_readout.vhd(48): object "DOUT_VLD" assigned a value but never read File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/Array_readout.vhd Line: 48
+Info (12128): Elaborating entity "serial_counter" for hierarchy "serial_counter:\gen:0:uut" File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/Array_readout.vhd Line: 159
+Info (12128): Elaborating entity "controller" for hierarchy "controller:CTR" File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/Array_readout.vhd Line: 172
+Warning (10540): VHDL Signal Declaration warning at controller.vhd(35): used explicit default value for signal "start" because signal was never assigned a value File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/controller.vhd Line: 35
+Info (12128): Elaborating entity "SPI_buffer_sender" for hierarchy "SPI_buffer_sender:SENDER" File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/Array_readout.vhd Line: 195
+Info (12128): Elaborating entity "SPI_MASTER" for hierarchy "SPI_MASTER:SPI_MAMA" File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/Array_readout.vhd Line: 221
+Warning (10445): VHDL Subtype or Type Declaration warning at spi_master.vhd(33): subtype or type has null range File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/spi_master.vhd Line: 33
+Warning (10445): VHDL Subtype or Type Declaration warning at spi_master.vhd(52): subtype or type has null range File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/spi_master.vhd Line: 52
+Warning (10036): Verilog HDL or VHDL warning at spi_master.vhd(52): object "addr_reg" assigned a value but never read File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/spi_master.vhd Line: 52
+Warning (10296): VHDL warning at spi_master.vhd(137): ignored assignment of value to null range File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/spi_master.vhd Line: 137
+Warning (10296): VHDL warning at spi_master.vhd(139): ignored assignment of value to null range File: /home/dl-lab-pc3/Dylan/FPGA/Array_readout/spi_master.vhd Line: 139
+Warning (12241): 1 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 16 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 29320 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 18 input pins
+    Info (21059): Implemented 9 output pins
+    Info (21061): Implemented 29293 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 9 warnings
+    Info: Peak virtual memory: 686 megabytes
+    Info: Processing ended: Mon Sep  9 15:50:19 2024
+    Info: Elapsed time: 00:01:44
+    Info: Total CPU time (on all processors): 00:01:55
+
+
