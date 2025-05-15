@@ -1,0 +1,26 @@
+-- Simple counter for counting the photon events of one SPAD.
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.NUMERIC_STD.ALL;
+
+entity counter is
+	generic (
+		COUNTER_SIZE	: natural --Number of bits for each individual counter
+	);
+	port (
+		clk          	: in  std_logic;
+      reset        	: in  std_logic;
+      input 			: in  std_logic;
+		counts_out		: out std_logic_vector(COUNTER_SIZE*16-1 downto 0) := (others => '0')
+	);
+end counter;
+
+architecture behaviour of counter is
+
+
+begin
+	process(clk)
+	begin
+	
+	end process;
+end architecture;
