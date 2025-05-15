@@ -1,0 +1,74 @@
+-- Implementation of counter for one SPAD array.
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+entity serial_counter is
+	generic (
+		COUNTER_SIZE	: natural := 32 --Number of bits for each individual counter
+	);
+	port (
+		clk          	: in  std_logic;
+      reset        	: in  std_logic;
+      serial_input 	: in  std_logic;
+		counts_out		: out std_logic_vector(COUNTER_SIZE*16-1 downto 0)
+	);
+end serial_counter;
+
+architecture behaviour of serial_counter is
+	signal reading				: std_logic := '0';
+	signal readout_counter	: natural := 0;
+	signal shift_register 	: std_logic_vector(15 downto 0) := (others => '0');
+	signal counter_inputs	: std_logic_vector(15 downto 0) := (others => '0');
+	
+	component input_counter is
+		generic (
+			COUNTER_SIZE	: natural := COUNTER_SIZE --Number of bits for each individual counter
+		);
+		port (
+			clk       : in  std_logic;
+			reset     : in  std_logic;
+			input     : in  std_logic;
+			count_out : out std_logic_vector(COUNTER_SIZE-1 downto 0)
+		);
+   end component;
+begin
+	gen: for i in 0 to 15 generate
+		uut: input_counter
+		generic map (
+            COUNTER_SIZE => COUNTER_SIZE  -- Pass the generic from serial_counter to input_counter
+        )
+		port map (
+            clk       => clk, 
+            reset     => reset, 
+            input     => counter_inputs(i), 
+            count_out => counts_out(COUNTER_SIZE*i+COUNTER_SIZE-1 downto COUNTER_SIZE*i)
+        );
+	end generate;
+	process(clk)
+	begin
+	if rising_edge(clk) then
+		if reading = '0' then
+			--Make sure counter_inputs is off again after last push
+			counter_inputs <= (others => '0');
+			if serial_input = '1' then
+				--This is the flagbit. Prepare for recieving data bits.
+				reading <= '1';
+			end if;
+		else
+			--Recieving data bits
+			shift_register(15) <= serial_input;
+			shift_register(14 downto 0) <= shift_register(15 downto 1);
+			if readout_counter = 15 then
+				--That was the last data bit
+				reading <= '0';
+				--Push all the newly obtained values into the actual counters
+				counter_inputs <= shift_register;
+			else
+				--That was not yet the last bit. Continue counting
+				readout_counter <= readout_counter + 1;
+			end if;
+		end if;
+	end if;
+	end process;
+end architecture behaviour;
+	
