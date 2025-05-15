@@ -1,0 +1,137 @@
+
+State Machine - |Array_readout|SPI_MASTER:SPI_MAMA|present_state
+Name present_state.transmit_gap present_state.transmit_end present_state.second_edge present_state.first_edge present_state.idle 
+present_state.idle 0 0 0 0 0 
+present_state.first_edge 0 0 0 1 1 
+present_state.second_edge 0 0 1 0 1 
+present_state.transmit_end 0 1 0 0 1 
+present_state.transmit_gap 1 0 0 0 1 
+
+State Machine - |Array_readout|SPI_buffer_sender:SENDER|state
+Name state.send_state state.prepare_state state.FF_state state.start_state 
+state.start_state 0 0 0 0 
+state.FF_state 0 0 1 1 
+state.prepare_state 0 1 0 1 
+state.send_state 1 0 0 1 
+
+State Machine - |Array_readout|controller:CTR|state
+Name state.read_state state.load_state state.collect_state state.clear_state state.standby_state state.conf_state state.start_state 
+state.start_state 0 0 0 0 0 0 0 
+state.conf_state 0 0 0 0 0 1 1 
+state.standby_state 0 0 0 0 1 0 1 
+state.clear_state 0 0 0 1 0 0 1 
+state.collect_state 0 0 1 0 0 0 1 
+state.load_state 0 1 0 0 0 0 1 
+state.read_state 1 0 0 0 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:15:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:14:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:13:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:12:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:11:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:10:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:9:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:8:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:7:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:6:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:5:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:4:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:3:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:2:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:1:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
+
+State Machine - |Array_readout|serial_counter:\gen:0:uut|state
+Name state.read_state state.alert_state state.idle_state state.start_state 
+state.start_state 0 0 0 0 
+state.idle_state 0 0 1 1 
+state.alert_state 0 1 0 1 
+state.read_state 1 0 0 1 
