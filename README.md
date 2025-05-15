@@ -1,4 +1,4 @@
-# Quantum Bio-sensing Code
+# Code for setting up and running ODMR experiments and SPAD array control
 
 This code has been developed within the Quantum Integration Technology (QIT) research group (Ishihara Lab) at TU Delft, as part of the MEP thesis of **Dylan Aliberti** (<dylan.aliberti@gmail.com>), titled _“Characterization of Single-Photon Avalanche Diodes and Integration with Diamond for Quantum Bio-sensing”_, and the PhD research project of **Ioannis Varveris** (<ynsvrv@gmail.com>), titled _“Toward a quantum biosensor based on CMOS-integrated NV centers: Quantum sensing and fabrication of color centers in diamond”_. This code is intended to be viewed and used by subsequent lab users/researchers and **should not be distributed** without prior permission by the authors.
 
